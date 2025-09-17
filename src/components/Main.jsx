@@ -21,7 +21,6 @@ export default function Main({ data, selectedDate, error }) {
 
   return (
     <div className="imgContainer">
-      {/* Fundo borrado */}
       {data.media_type === "image" && (
         <img
           src={data.hdurl || data.url}
@@ -31,14 +30,12 @@ export default function Main({ data, selectedDate, error }) {
         />
       )}
 
-      {/* Loader centralizado */}
       {!imgLoaded && data.media_type === "image" && (
         <div className="loaderWrapper">
           <Loader />
         </div>
       )}
 
-      {/* Imagem principal */}
       {data.media_type === "image" && (
         <img
           src={data.hdurl || data.url}
@@ -54,7 +51,6 @@ export default function Main({ data, selectedDate, error }) {
         />
       )}
 
-      {/* Vídeo */}
       {data.media_type === "video" && (
         <div className="videoContainer">
           <iframe
@@ -66,7 +62,6 @@ export default function Main({ data, selectedDate, error }) {
         </div>
       )}
 
-      {/* Error se não renderiza */}
       {cannotRender && (
         <div className="errorBox">
           <p>NASA sent a media type we can’t display</p>
@@ -76,7 +71,6 @@ export default function Main({ data, selectedDate, error }) {
         </div>
       )}
 
-      {/* Error da API */}
       {error && (
         <div className="errorBox">
           <p>{error}</p>
