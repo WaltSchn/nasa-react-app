@@ -1,19 +1,20 @@
-import React from 'react'
+import PropTypes from "prop-types";
 
-export default function Footer(props) {
-  const { showModal, handleToggleModal, data } = props
+export default function Footer({ data, handleToggleModal }) {
   return (
     <footer>
-        <div className='bgGradient'>
-            
-        </div>
-        <div>
-            <h2>{data?.title}</h2>
-            <h1>APOD (Astronomy Picture of the Day) Project</h1>
-        </div>
-        <button onClick={handleToggleModal}>
-            <i className="fa-solid fa-circle-info"></i>
-        </button>
+      <div>
+        <h2>{data?.title}</h2>
+        <h1>APOD Project</h1>
+      </div>
+      <button onClick={handleToggleModal} className="infoButton">
+        <i className="fa-solid fa-circle-info"></i>
+      </button>
     </footer>
-  )
+  );
 }
+
+Footer.propTypes = {
+  data: PropTypes.object,
+  handleToggleModal: PropTypes.func.isRequired,
+};
